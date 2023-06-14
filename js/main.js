@@ -28,7 +28,7 @@ function getUserIpAddress()
 {
     fetch('https://api.ipify.org/?format=json')
     .then(res => res.json())
-    .then(data => requestData('8.8.8.8'));
+    .then(data => requestData(data.ip));
 }
 
 document.querySelector('#search-btn').addEventListener('click', search);
