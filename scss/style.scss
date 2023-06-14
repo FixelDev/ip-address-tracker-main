@@ -1,0 +1,151 @@
+@import 'config';
+@import 'utilities';
+
+*
+{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html, body
+{
+    font-family: 'Rubik';
+    font-size: 18px;
+}
+
+
+header
+{
+    background: url('../images/pattern-bg-desktop.png'), linear-gradient(to right, $header-gradient-start, $header-gradient-end);
+    background-repeat: no-repeat;
+    background-position: center center;
+    min-height: 280px;
+    height: 37vh;
+    
+
+    .title
+    {
+        color: #fff;
+        font-weight: 500;
+        margin: 20px 0;
+    }
+
+    .search-bar-group
+    {   
+        width: 50%;
+        position: relative;
+
+        .search-bar
+        {
+            border:none;
+            outline:none;
+            width: 100%;
+            padding: 0 20px;
+            height: 50px;
+            border-radius: 12px 0 0 12px;
+            font-weight: 500;
+            font-size: 1rem;
+        }
+
+        .search-bar:hover
+        {
+            cursor: pointer;
+        }
+
+        .search-bar::placeholder
+        {
+            font-weight: 500;
+            font-size: 1rem;
+            color: rgba($very-dark-gray, 0.4);
+        }
+
+        .btn
+        {
+            background: url('../images/icon-arrow.svg'), #000;
+            background-repeat: no-repeat;
+            background-position: center center;
+            height: 50px;
+            width: 55px;
+            border:none;
+            outline: none;
+            border-radius: 0 12px 12px 0;
+        }
+        
+        .btn:hover
+        {
+            background-color: $very-dark-gray;
+            cursor: pointer;
+        }
+    }
+}
+
+.results
+{
+
+    .result-panel
+    {
+        background-color: #fff;
+        transform: translateY(-50%);
+        border-radius: 15px;
+        width: 100%;
+        box-shadow: 0px 32px 66px -37px rgba($very-dark-gray, 0.4);
+        z-index: 10;
+
+        .container
+        {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: 1fr;
+            padding: 40px 0 50px 0;;
+        }
+
+        .item
+        {
+            align-items: flex-start;
+            padding: 0 40px;
+
+            .title
+            {
+                font-size: 0.7rem;
+                text-transform: uppercase;
+                font-weight: 700;
+                letter-spacing: 2px;
+                color: $dark-gray;
+                margin: 15px 0;
+            }
+
+            .content
+            {
+                color: $very-dark-gray;
+            }
+        }
+
+        @for $i from 2 through 4
+        {
+            .item:nth-child(#{$i})
+            {
+                border-left: 2px solid rgba($dark-gray, 0.3);
+            }
+        }
+
+    }
+}
+
+main
+{
+    position: absolute;
+    bottom: 0;
+    left:0 ;
+    height: 66vh;
+    width: 100%;
+    #map 
+    { 
+        height: 100%;
+        z-index: 1;
+    }
+}
+
+
+
+@import 'mobile';
