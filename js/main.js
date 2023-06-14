@@ -2,7 +2,7 @@ let map;
 let mapMarker;
 const markerIcon = L.icon
 ({
-    iconUrl: '../images/icon-location.svg'
+    iconUrl: window.location.href + '/images/icon-location.svg'
 });
 
 
